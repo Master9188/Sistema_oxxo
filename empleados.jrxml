@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="empleados" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc3bd7ad-80db-4a00-be7d-05f363f0537b">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     trabajadores.`Idtrabajador` AS trabajadores_Idtrabajador,
+     trabajadores.`nombre` AS trabajadores_nombre,
+     trabajadores.`apepat` AS trabajadores_apepat,
+     trabajadores.`apemat` AS trabajadores_apemat,
+     trabajadores.`puesto` AS trabajadores_puesto,
+     trabajadores.`sueldo` AS trabajadores_sueldo,
+     trabajadores.`fechaini` AS trabajadores_fechaini
+FROM
+     `trabajadores` trabajadores]]>
+	</queryString>
+	<field name="trabajadores_Idtrabajador" class="java.lang.Integer"/>
+	<field name="trabajadores_nombre" class="java.lang.String"/>
+	<field name="trabajadores_apepat" class="java.lang.String"/>
+	<field name="trabajadores_apemat" class="java.lang.String"/>
+	<field name="trabajadores_puesto" class="java.lang.String"/>
+	<field name="trabajadores_sueldo" class="java.lang.Integer"/>
+	<field name="trabajadores_fechaini" class="java.sql.Date"/>
+	<variable name="trabajadores_sueldo_1" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{trabajadores_sueldo}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="81" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="2" width="555" height="79" backcolor="#000000" uuid="3cb7416e-0b38-4c52-98c8-8337cc800673"/>
+			</rectangle>
+			<image>
+				<reportElement x="23" y="18" width="101" height="41" uuid="c5247bee-439c-4963-abb0-c62feec522ee"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\empleados.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="207" y="18" width="159" height="44" forecolor="#FFFFFF" backcolor="#000000" uuid="4bc030a1-ee2a-44e5-997e-a72788c44110"/>
+				<textElement>
+					<font fontName="Matura MT Script Capitals" size="32"/>
+				</textElement>
+				<text><![CDATA[Empleados]]></text>
+			</staticText>
+			<image>
+				<reportElement x="426" y="2" width="161" height="79" uuid="b00cde19-b104-416f-9461-467ed2da1018"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\imagen chica oxxo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="555" height="25" forecolor="#000000" backcolor="#FF3333" uuid="7cc994de-e63a-49a7-96bc-1cdd5021922f"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="65" height="20" uuid="81b6ca80-fb26-4137-b797-1a6d1bec7389"/>
+				<text><![CDATA[Id trabajador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="61" height="20" uuid="52de0c79-7c88-4520-a2ec-caceec15b545"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="65" height="20" uuid="f497290c-ea40-45b1-a154-0a8343b6a01c"/>
+				<text><![CDATA[Ape. Paterno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="279" y="0" width="70" height="20" uuid="de90dfeb-4c99-4194-bda7-bd25ced0b703"/>
+				<text><![CDATA[Ape. Materno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="374" y="0" width="52" height="20" uuid="b5544f8b-72ed-4be9-8174-5657d92de353"/>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="0" width="49" height="20" uuid="a84aa069-7a2f-482a-ad56-0a92ac99c0ce"/>
+				<text><![CDATA[Sueldo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="53" splitType="Stretch">
+			<textField>
+				<reportElement x="23" y="0" width="22" height="20" uuid="03d7048e-6201-44ec-919a-478357fc3b72"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_Idtrabajador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="61" height="20" uuid="09f28ce6-91c4-4b71-b3c7-8f424edd6326"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="0" width="65" height="20" uuid="1954d1c7-8080-4b3f-8f8b-b9f4e4573d7e"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_apepat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="279" y="0" width="70" height="20" uuid="131a64ad-1f29-4176-a9db-8f0fb94bb2c8"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_apemat}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="374" y="0" width="52" height="20" uuid="2cd7d75f-2005-40e7-8e5d-2d68a5a2f662"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_puesto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="445" y="0" width="49" height="20" uuid="dfd8cf88-6bb8-402c-9dbc-ffd11b16e7f2"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_sueldo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="435" y="32" width="59" height="20" uuid="a9f7adbd-3fd6-4505-8119-456c336de8dd"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_fechaini}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="374" y="32" width="61" height="20" uuid="ab3fa19c-712e-4092-841a-1179a618c692"/>
+				<text><![CDATA[Fecha inicio:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="52" width="554" height="1" uuid="1d2ef94d-c286-4cb6-8785-b50f35a7543e"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="31" splitType="Stretch">
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="238" y="11" width="100" height="20" uuid="69ccca4d-7d44-47a9-8bd6-06d5c02dabae"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="11" width="80" height="20" uuid="593a4cdd-3f7b-4256-9d3a-fdbea0fe9436"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="11" width="40" height="20" uuid="9dfad60f-281c-4868-9c9e-1410abb3ae76"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField pattern="#,##0.00">
+				<reportElement x="405" y="0" width="100" height="20" uuid="bfd9fc1a-781b-49e0-b963-4c5efa3d7df1"/>
+				<textFieldExpression><![CDATA[$V{trabajadores_sueldo_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="305" y="0" width="100" height="20" uuid="8bea0668-2dd5-485a-8a05-d02e10862c3c"/>
+				<text><![CDATA[PAGO MENSUAL:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

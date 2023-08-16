@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="proveedores" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2def1747-a1ed-411b-aa62-cd61ae8e4031">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     proveedores.`Idproveedor` AS proveedores_Idproveedor,
+     proveedores.`nombreEmpresa` AS proveedores_nombreEmpresa,
+     proveedores.`direccion` AS proveedores_direccion,
+     proveedores.`telefono` AS proveedores_telefono
+FROM
+     `proveedores` proveedores]]>
+	</queryString>
+	<field name="proveedores_Idproveedor" class="java.lang.Integer"/>
+	<field name="proveedores_nombreEmpresa" class="java.lang.String"/>
+	<field name="proveedores_direccion" class="java.lang.String"/>
+	<field name="proveedores_telefono" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-3" y="0" width="555" height="70" backcolor="#000000" uuid="41fda7bd-26ca-4086-8518-50dd8879a9e3"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Title" x="174" y="5" width="210" height="33" uuid="5b6d4c51-55e3-405b-8b59-84e43f062657"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[SISTEMA OXXO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="197" y="38" width="146" height="22" forecolor="#FFFFFF" uuid="bad49a99-92aa-4da0-8c90-0cee3a8e871f"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[PROVEEDORES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="11" y="10" width="127" height="50" uuid="3dcd3c43-0157-4625-84be-647eed245771"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\imagen chica oxxo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="b68bb901-f045-42dd-8aa2-5a5319bcf17b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="138" height="15" uuid="37394d9f-9382-407a-8868-f3c23385b2ff"/>
+				<text><![CDATA[Id proveedor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="19" width="138" height="15" uuid="80f2c2e7-fc70-4021-a5fa-11f35297a3be"/>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="138" height="15" uuid="6b9eca03-87e0-4916-b42d-6c161f2d9f1c"/>
+				<text><![CDATA[Direccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="19" width="138" height="15" uuid="c4dbc306-94bc-416b-86c1-74a7c4183e21"/>
+				<text><![CDATA[Telefono]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="1f5a93c5-27ab-4b35-8597-df905f3dd4a0"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="138" height="15" uuid="9a56f85f-7f9a-41a5-bdd1-0779db32066e"/>
+				<textFieldExpression><![CDATA[$F{proveedores_Idproveedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="138" y="0" width="138" height="15" uuid="eddc5edc-05e9-4853-900c-4fd075682afc"/>
+				<textFieldExpression><![CDATA[$F{proveedores_nombreEmpresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="138" height="15" uuid="9d404f78-cbad-4dc1-a64c-bbf1775cd2fc"/>
+				<textFieldExpression><![CDATA[$F{proveedores_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="138" height="15" uuid="92a35e1f-6dde-4d85-bc49-21969bc07366"/>
+				<textFieldExpression><![CDATA[$F{proveedores_telefono}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="fadd3774-d103-4b3f-8b3b-2b8bebe244f7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="a741617e-ca48-4eb3-8e21-c819cbc66eb2"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="38cfbb15-e79e-466e-98fc-f261dbec4d89"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="5ae1ce11-3e23-4b74-9bbd-fb127feb53d1"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

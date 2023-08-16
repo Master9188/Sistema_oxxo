@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Nominas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="437895de-e04f-4d46-af86-527455c31398">
+	<property name="ireport.zoom" value="1.6105100000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="23"/>
+	<queryString>
+		<![CDATA[SELECT
+     nominas.`idnomina` AS nominas_idnomina,
+     nominas.`idtrabajador` AS nominas_idtrabajador,
+     nominas.`nomtrabajador` AS nominas_nomtrabajador,
+     nominas.`sueldo` AS nominas_sueldo,
+     nominas.`ispt` AS nominas_ispt,
+     nominas.`subsidio` AS nominas_subsidio,
+     nominas.`total` AS nominas_total,
+     nominas.`pagquincenal` AS nominas_pagquincenal,
+     trabajadores.`Idtrabajador` AS trabajadores_Idtrabajador,
+     trabajadores.`nombre` AS trabajadores_nombre,
+     trabajadores.`apepat` AS trabajadores_apepat,
+     trabajadores.`apemat` AS trabajadores_apemat,
+     trabajadores.`puesto` AS trabajadores_puesto,
+     trabajadores.`sueldo` AS trabajadores_sueldo,
+     trabajadores.`fechaini` AS trabajadores_fechaini
+FROM
+     `trabajadores` trabajadores INNER JOIN `nominas` nominas ON trabajadores.`Idtrabajador` = nominas.`idtrabajador` ORDER BY
+    nominas.`idnomina`, nominas.`idtrabajador`;]]>
+	</queryString>
+	<field name="nominas_idnomina" class="java.lang.Integer"/>
+	<field name="nominas_idtrabajador" class="java.lang.Integer"/>
+	<field name="nominas_nomtrabajador" class="java.lang.String"/>
+	<field name="nominas_sueldo" class="java.lang.Double"/>
+	<field name="nominas_ispt" class="java.lang.Double"/>
+	<field name="nominas_subsidio" class="java.lang.Double"/>
+	<field name="nominas_total" class="java.lang.Double"/>
+	<field name="nominas_pagquincenal" class="java.lang.Double"/>
+	<field name="trabajadores_Idtrabajador" class="java.lang.Integer"/>
+	<field name="trabajadores_nombre" class="java.lang.String"/>
+	<field name="trabajadores_apepat" class="java.lang.String"/>
+	<field name="trabajadores_apemat" class="java.lang.String"/>
+	<field name="trabajadores_puesto" class="java.lang.String"/>
+	<field name="trabajadores_sueldo" class="java.lang.Integer"/>
+	<field name="trabajadores_fechaini" class="java.sql.Date"/>
+	<variable name="nominas_pagquincenal_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{nominas_pagquincenal}]]></variableExpression>
+	</variable>
+	<group name="idnomina">
+		<groupExpression><![CDATA[$F{nominas_idnomina}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="133" y="0" width="100" height="20" uuid="66a7d1e5-a667-4bc9-9096-5fff4a838891"/>
+					<textFieldExpression><![CDATA[$F{nominas_idnomina}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="56" y="0" width="60" height="20" uuid="206ad119-1906-4687-9586-04337b3e3f10"/>
+					<text><![CDATA[iD NOMINA:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#000000" uuid="84fe9c26-4ef9-42ae-ba22-be598316fede"/>
+			</rectangle>
+			<image>
+				<reportElement x="29" y="17" width="127" height="50" uuid="7076cfaf-b706-464e-ba64-731cbb33fdb9"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\imagen chica oxxo.jpg"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="465" y="5" width="79" height="62" uuid="dce9476e-e8d4-4cf4-a57a-2703dcb54900"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\nominas.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="222" y="17" width="149" height="40" forecolor="#FFFFFF" uuid="7e09783c-0dfa-4314-976a-338b7fbd0aef"/>
+				<textElement textAlignment="Center">
+					<font size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMINAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="20" backcolor="#FF3333" uuid="2eadd107-498a-4e39-a6c3-5415e06e5500"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="11" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="13" width="332" height="20" backcolor="#000000" uuid="1eca51d5-11fa-4c3b-8d77-0378d22966d8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="136" y="13" width="60" height="20" forecolor="#FFFFFF" uuid="868935dc-6627-4d04-b7ef-adf2e4c192bc"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="13" width="67" height="20" forecolor="#FFFFFF" uuid="82658157-c9ec-4b0c-81dd-6cc826ba56d7"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMINA]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="348" y="33" width="207" height="92" uuid="c711c54e-60bf-428c-8090-3ddd96d7cee3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="348" y="13" width="207" height="20" backcolor="#000000" uuid="a8468cea-e99c-4a42-a8bf-619e2f5d8730"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="33" width="332" height="92" uuid="df94cc9f-f62c-4548-908d-5589771f09fe"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="54" width="59" height="20" uuid="e7832c2e-8e6a-484e-a3ff-2085e0a7b9f9"/>
+				<text><![CDATA[Id trabajador]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="25" y="74" width="31" height="20" uuid="425586eb-a32c-4315-a1d2-a533ebd2302a"/>
+				<textFieldExpression><![CDATA[$F{nominas_idtrabajador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="74" y="74" width="42" height="20" uuid="911bc6ac-b7f7-46e8-aad4-3c3193356794"/>
+				<textFieldExpression><![CDATA[$F{nominas_nomtrabajador}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="74" y="54" width="42" height="20" uuid="7a6f8b96-2c5a-4363-a4c6-b7a7e894b71a"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="133" y="54" width="61" height="20" uuid="64c61bbe-26ea-4e0b-b77b-838fa6a8fb0a"/>
+				<text><![CDATA[Ape. Paterno]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="133" y="74" width="61" height="20" uuid="236c7aa3-6fc4-4ded-a8eb-a4fa0cbf3f5f"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_apepat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="207" y="54" width="69" height="20" uuid="270d76b7-a1b8-47a1-9434-218a551e229c"/>
+				<text><![CDATA[Ape. Materno]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="207" y="74" width="69" height="20" uuid="9fcc9cdb-6ba4-43a1-9ea5-ab4fbf00d5a8"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_apemat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="288" y="54" width="34" height="20" uuid="5b3a2749-bf46-407e-9a3d-c1576829c3cd"/>
+				<text><![CDATA[Puesto]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="288" y="74" width="44" height="20" uuid="992081e6-9b74-4e2c-b4d1-335ea81396f1"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_puesto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="429" y="12" width="67" height="20" forecolor="#FFFFFF" uuid="b01c611b-f6f1-4327-bcc7-1b407b67340a"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMINA]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="394" y="44" width="35" height="20" uuid="3b5108b0-71c5-493d-851c-de662056c898"/>
+				<textFieldExpression><![CDATA[$F{nominas_sueldo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="359" y="44" width="35" height="20" uuid="b4b240df-7e4a-4c87-870e-31c70e77ec0c"/>
+				<text><![CDATA[Sueldo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="475" y="44" width="47" height="20" uuid="77cd4d54-4359-47e2-93a9-3edab1e5a931"/>
+				<textFieldExpression><![CDATA[$F{nominas_ispt}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="445" y="44" width="30" height="20" uuid="42d7d886-e787-4195-8a51-ecf38aaffe64"/>
+				<text><![CDATA[ISPT]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="402" y="74" width="27" height="20" uuid="48717cfd-2318-45f5-8f67-aea3d92e69e3"/>
+				<textFieldExpression><![CDATA[$F{nominas_subsidio}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="359" y="74" width="43" height="20" uuid="e02fc160-558b-4b18-b32c-2dc0b8162463"/>
+				<text><![CDATA[Subsidio]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="475" y="74" width="47" height="20" uuid="2b786dc9-795d-4520-b579-7b59f69137ae"/>
+				<textFieldExpression><![CDATA[$F{nominas_total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="445" y="74" width="27" height="20" uuid="826fe875-3118-415f-a38e-5617e62daa65"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="429" y="94" width="46" height="20" uuid="5f13c329-3d94-4cf7-b8ea-3c82a1ed7e7a"/>
+				<textFieldExpression><![CDATA[$F{nominas_pagquincenal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="382" y="94" width="47" height="20" uuid="855f305d-6871-4c33-bd44-a113be309ea0"/>
+				<text><![CDATA[Quincenal]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="25" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="232" y="12" width="100" height="20" uuid="392742d3-a928-44aa-a408-ebb401da01f3"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="12" width="80" height="20" uuid="7bc21c5d-7b68-4136-a26d-f5a3b76718f0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="507" y="12" width="40" height="20" uuid="abbba63d-dfab-4685-b0a3-1e7a9b9a4635"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField>
+				<reportElement x="429" y="16" width="100" height="20" uuid="e9b4ec18-bac1-4cd5-a2f0-37ea1285f951"/>
+				<textFieldExpression><![CDATA[$V{nominas_pagquincenal_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="381" y="16" width="48" height="20" uuid="887bd3ac-f2de-4549-b4dd-a8d109d9e54e"/>
+				<text><![CDATA[Pago mes:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

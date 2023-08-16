@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="aguinaldo" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d04937b1-1dea-44ae-a5ca-5023ebbbd322">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="23"/>
+	<queryString>
+		<![CDATA[SELECT
+     aguinaldo.`idaguinaldo` AS aguinaldo_idaguinaldo,
+     aguinaldo.`idtrabajador` AS aguinaldo_idtrabajador,
+     aguinaldo.`nomtrabajador` AS aguinaldo_nomtrabajador,
+     aguinaldo.`sueldo` AS aguinaldo_sueldo,
+     aguinaldo.`aguinaldo` AS aguinaldo_aguinaldo,
+     aguinaldo.`diatrabajados` AS aguinaldo_diatrabajados,
+     trabajadores.`Idtrabajador` AS trabajadores_Idtrabajador,
+     trabajadores.`nombre` AS trabajadores_nombre,
+     trabajadores.`apepat` AS trabajadores_apepat,
+     trabajadores.`apemat` AS trabajadores_apemat,
+     trabajadores.`puesto` AS trabajadores_puesto,
+     trabajadores.`sueldo` AS trabajadores_sueldo,
+     trabajadores.`fechaini` AS trabajadores_fechaini
+FROM
+     `trabajadores` trabajadores INNER JOIN `aguinaldo` aguinaldo ON trabajadores.`Idtrabajador` = aguinaldo.`idtrabajador`]]>
+	</queryString>
+	<field name="aguinaldo_idaguinaldo" class="java.lang.Integer"/>
+	<field name="aguinaldo_idtrabajador" class="java.lang.Integer"/>
+	<field name="aguinaldo_nomtrabajador" class="java.lang.String"/>
+	<field name="aguinaldo_sueldo" class="java.lang.Double"/>
+	<field name="aguinaldo_aguinaldo" class="java.lang.Double"/>
+	<field name="aguinaldo_diatrabajados" class="java.lang.Integer"/>
+	<field name="trabajadores_Idtrabajador" class="java.lang.Integer"/>
+	<field name="trabajadores_nombre" class="java.lang.String"/>
+	<field name="trabajadores_apepat" class="java.lang.String"/>
+	<field name="trabajadores_apemat" class="java.lang.String"/>
+	<field name="trabajadores_puesto" class="java.lang.String"/>
+	<field name="trabajadores_sueldo" class="java.lang.Integer"/>
+	<field name="trabajadores_fechaini" class="java.sql.Date"/>
+	<variable name="aguinaldo_aguinaldo_1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{aguinaldo_aguinaldo}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="78" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-1" width="555" height="79" backcolor="#000000" uuid="df2937ad-2bcf-43b0-9beb-6f4289e27b43"/>
+			</rectangle>
+			<image>
+				<reportElement x="423" y="-1" width="132" height="79" uuid="2a35d9bc-535c-48a2-9164-921aa8f35322"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\imagen chica oxxo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="193" y="15" width="188" height="44" forecolor="#FFFFFF" backcolor="#000000" uuid="ed627c6e-1e02-49a7-935e-937fe4cceb0e"/>
+				<textElement>
+					<font fontName="Matura MT Script Capitals" size="32"/>
+				</textElement>
+				<text><![CDATA[Aguinaldos]]></text>
+			</staticText>
+			<image>
+				<reportElement x="36" y="15" width="87" height="49" uuid="43e4f0e1-1ba8-45a8-963e-e05cb203d454"/>
+				<imageExpression><![CDATA["C:\\Users\\windows\\Pictures\\aguinaldos.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="25" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="25" forecolor="#000000" backcolor="#FF3333" uuid="55c6e83b-64a1-498d-b54c-f410d4c5bebd"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="92" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="92" uuid="33e2bc33-bd7b-4d5a-8a1c-0de5a50eec2f"/>
+			</rectangle>
+			<textField>
+				<reportElement x="210" y="0" width="43" height="20" uuid="1ff9f3a1-9429-4452-a7f2-3817f6e84415"/>
+				<textFieldExpression><![CDATA[$F{aguinaldo_idaguinaldo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="0" width="60" height="20" uuid="da6aa6e1-520d-41d4-865b-9a84d8e5baf4"/>
+				<text><![CDATA[Id aguinaldo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="290" y="0" width="63" height="20" uuid="56909d47-f34d-489f-989f-55bc4c575ee1"/>
+				<text><![CDATA[Id trabajador]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="353" y="0" width="42" height="20" uuid="ad14170a-c39e-4abe-b52e-b6a484c905b9"/>
+				<textFieldExpression><![CDATA[$F{aguinaldo_idtrabajador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="53" width="48" height="20" uuid="105f1546-88a0-42a2-9c51-5805b90622c3"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_nombre}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="88" y="33" width="48" height="20" uuid="2a518efd-9f6a-4160-ad41-c4765140c365"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="53" width="67" height="20" uuid="155ba6f7-b3ac-4cfe-b788-5378f3d61376"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_apepat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="150" y="33" width="67" height="20" uuid="c8f2cbfb-79e1-416b-ba26-dabefbed0a89"/>
+				<text><![CDATA[Ape. Paterno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="239" y="33" width="74" height="20" uuid="05864f95-2ab2-41cd-8ab3-05dec4b122ed"/>
+				<text><![CDATA[Ape. Materno]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="239" y="53" width="74" height="20" uuid="96e1ce92-3680-4d8d-baec-45824b2ad52d"/>
+				<textFieldExpression><![CDATA[$F{trabajadores_apemat}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="353" y="33" width="41" height="20" uuid="47437053-f6fd-4c91-8414-28afd66da3a5"/>
+				<text><![CDATA[Sueldo]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="353" y="53" width="41" height="20" uuid="b1584c97-a2b6-4851-8c71-0133eb2d8e21"/>
+				<textFieldExpression><![CDATA[$F{aguinaldo_sueldo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="420" y="33" width="50" height="20" uuid="22bee3ac-5858-4b1a-bbab-da0ef774d336"/>
+				<text><![CDATA[Aguinaldo]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="420" y="53" width="50" height="20" uuid="9c29e8d9-79aa-456b-a8bd-3296c317f17c"/>
+				<textFieldExpression><![CDATA[$F{aguinaldo_aguinaldo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="36" splitType="Stretch">
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="238" y="16" width="100" height="20" uuid="2bab52c0-b401-4075-a041-9669e87c8b14"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="0" width="80" height="20" uuid="01e401f1-67c3-4288-b9fb-f0d95c9c6bf6"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="0" width="40" height="20" uuid="95b3817c-5625-44a0-8fa5-f8cd99158b29"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="370" y="0" width="100" height="20" uuid="17184716-29bf-466a-a59b-332c04910ca1"/>
+				<textFieldExpression><![CDATA[$V{aguinaldo_aguinaldo_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="270" y="0" width="100" height="20" uuid="189cd91a-921f-4506-b2df-31e0a4aa6001"/>
+				<text><![CDATA[Aguinaldo Empresa:]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
